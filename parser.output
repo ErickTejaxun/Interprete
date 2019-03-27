@@ -1,0 +1,408 @@
+Terminals unused in grammar
+
+   id
+
+
+Grammar
+
+    0 $accept: INICIO $end
+
+    1 INICIO: LEXPA
+
+    2 LEXPA: LEXPA EXPA puntocoma
+    3      | EXPA puntocoma
+
+    4 EXPA: EXPA suma EXPA
+    5     | EXPA menos EXPA
+    6     | EXPA multi EXPA
+    7     | EXPA division EXPA
+    8     | EXPA potencia EXPA
+    9     | menos EXPA
+   10     | entero
+   11     | caracter
+   12     | decimal
+   13     | booleano
+   14     | cadena
+   15     | pari EXPA pard
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+entero <TEXT> (258) 10
+decimal <TEXT> (259) 12
+caracter <TEXT> (260) 11
+booleano <TEXT> (261) 13
+cadena <TEXT> (262) 14
+id <TEXT> (263)
+pari <TEXT> (264) 15
+pard <TEXT> (265) 15
+suma <TEXT> (266) 4
+menos <TEXT> (267) 5 9
+multi <TEXT> (268) 6
+division <TEXT> (269) 7
+potencia <TEXT> (270) 8
+puntocoma <TEXT> (271) 2 3
+
+
+Nonterminals, with rules where they appear
+
+$accept (17)
+    on left: 0
+INICIO <nodito> (18)
+    on left: 1, on right: 0
+LEXPA <nodito> (19)
+    on left: 2 3, on right: 1 2
+EXPA <nodito> (20)
+    on left: 4 5 6 7 8 9 10 11 12 13 14 15, on right: 2 3 4 5 6 7 8
+    9 15
+
+
+State 0
+
+    0 $accept: . INICIO $end
+
+    entero    shift, and go to state 1
+    decimal   shift, and go to state 2
+    caracter  shift, and go to state 3
+    booleano  shift, and go to state 4
+    cadena    shift, and go to state 5
+    pari      shift, and go to state 6
+    menos     shift, and go to state 7
+
+    INICIO  go to state 8
+    LEXPA   go to state 9
+    EXPA    go to state 10
+
+
+State 1
+
+   10 EXPA: entero .
+
+    $default  reduce using rule 10 (EXPA)
+
+
+State 2
+
+   12 EXPA: decimal .
+
+    $default  reduce using rule 12 (EXPA)
+
+
+State 3
+
+   11 EXPA: caracter .
+
+    $default  reduce using rule 11 (EXPA)
+
+
+State 4
+
+   13 EXPA: booleano .
+
+    $default  reduce using rule 13 (EXPA)
+
+
+State 5
+
+   14 EXPA: cadena .
+
+    $default  reduce using rule 14 (EXPA)
+
+
+State 6
+
+   15 EXPA: pari . EXPA pard
+
+    entero    shift, and go to state 1
+    decimal   shift, and go to state 2
+    caracter  shift, and go to state 3
+    booleano  shift, and go to state 4
+    cadena    shift, and go to state 5
+    pari      shift, and go to state 6
+    menos     shift, and go to state 7
+
+    EXPA  go to state 11
+
+
+State 7
+
+    9 EXPA: menos . EXPA
+
+    entero    shift, and go to state 1
+    decimal   shift, and go to state 2
+    caracter  shift, and go to state 3
+    booleano  shift, and go to state 4
+    cadena    shift, and go to state 5
+    pari      shift, and go to state 6
+    menos     shift, and go to state 7
+
+    EXPA  go to state 12
+
+
+State 8
+
+    0 $accept: INICIO . $end
+
+    $end  shift, and go to state 13
+
+
+State 9
+
+    1 INICIO: LEXPA .
+    2 LEXPA: LEXPA . EXPA puntocoma
+
+    entero    shift, and go to state 1
+    decimal   shift, and go to state 2
+    caracter  shift, and go to state 3
+    booleano  shift, and go to state 4
+    cadena    shift, and go to state 5
+    pari      shift, and go to state 6
+    menos     shift, and go to state 7
+
+    $default  reduce using rule 1 (INICIO)
+
+    EXPA  go to state 14
+
+
+State 10
+
+    3 LEXPA: EXPA . puntocoma
+    4 EXPA: EXPA . suma EXPA
+    5     | EXPA . menos EXPA
+    6     | EXPA . multi EXPA
+    7     | EXPA . division EXPA
+    8     | EXPA . potencia EXPA
+
+    suma       shift, and go to state 15
+    menos      shift, and go to state 16
+    multi      shift, and go to state 17
+    division   shift, and go to state 18
+    potencia   shift, and go to state 19
+    puntocoma  shift, and go to state 20
+
+
+State 11
+
+    4 EXPA: EXPA . suma EXPA
+    5     | EXPA . menos EXPA
+    6     | EXPA . multi EXPA
+    7     | EXPA . division EXPA
+    8     | EXPA . potencia EXPA
+   15     | pari EXPA . pard
+
+    pard      shift, and go to state 21
+    suma      shift, and go to state 15
+    menos     shift, and go to state 16
+    multi     shift, and go to state 17
+    division  shift, and go to state 18
+    potencia  shift, and go to state 19
+
+
+State 12
+
+    4 EXPA: EXPA . suma EXPA
+    5     | EXPA . menos EXPA
+    6     | EXPA . multi EXPA
+    7     | EXPA . division EXPA
+    8     | EXPA . potencia EXPA
+    9     | menos EXPA .
+
+    multi     shift, and go to state 17
+    division  shift, and go to state 18
+    potencia  shift, and go to state 19
+
+    $default  reduce using rule 9 (EXPA)
+
+
+State 13
+
+    0 $accept: INICIO $end .
+
+    $default  accept
+
+
+State 14
+
+    2 LEXPA: LEXPA EXPA . puntocoma
+    4 EXPA: EXPA . suma EXPA
+    5     | EXPA . menos EXPA
+    6     | EXPA . multi EXPA
+    7     | EXPA . division EXPA
+    8     | EXPA . potencia EXPA
+
+    suma       shift, and go to state 15
+    menos      shift, and go to state 16
+    multi      shift, and go to state 17
+    division   shift, and go to state 18
+    potencia   shift, and go to state 19
+    puntocoma  shift, and go to state 22
+
+
+State 15
+
+    4 EXPA: EXPA suma . EXPA
+
+    entero    shift, and go to state 1
+    decimal   shift, and go to state 2
+    caracter  shift, and go to state 3
+    booleano  shift, and go to state 4
+    cadena    shift, and go to state 5
+    pari      shift, and go to state 6
+    menos     shift, and go to state 7
+
+    EXPA  go to state 23
+
+
+State 16
+
+    5 EXPA: EXPA menos . EXPA
+
+    entero    shift, and go to state 1
+    decimal   shift, and go to state 2
+    caracter  shift, and go to state 3
+    booleano  shift, and go to state 4
+    cadena    shift, and go to state 5
+    pari      shift, and go to state 6
+    menos     shift, and go to state 7
+
+    EXPA  go to state 24
+
+
+State 17
+
+    6 EXPA: EXPA multi . EXPA
+
+    entero    shift, and go to state 1
+    decimal   shift, and go to state 2
+    caracter  shift, and go to state 3
+    booleano  shift, and go to state 4
+    cadena    shift, and go to state 5
+    pari      shift, and go to state 6
+    menos     shift, and go to state 7
+
+    EXPA  go to state 25
+
+
+State 18
+
+    7 EXPA: EXPA division . EXPA
+
+    entero    shift, and go to state 1
+    decimal   shift, and go to state 2
+    caracter  shift, and go to state 3
+    booleano  shift, and go to state 4
+    cadena    shift, and go to state 5
+    pari      shift, and go to state 6
+    menos     shift, and go to state 7
+
+    EXPA  go to state 26
+
+
+State 19
+
+    8 EXPA: EXPA potencia . EXPA
+
+    entero    shift, and go to state 1
+    decimal   shift, and go to state 2
+    caracter  shift, and go to state 3
+    booleano  shift, and go to state 4
+    cadena    shift, and go to state 5
+    pari      shift, and go to state 6
+    menos     shift, and go to state 7
+
+    EXPA  go to state 27
+
+
+State 20
+
+    3 LEXPA: EXPA puntocoma .
+
+    $default  reduce using rule 3 (LEXPA)
+
+
+State 21
+
+   15 EXPA: pari EXPA pard .
+
+    $default  reduce using rule 15 (EXPA)
+
+
+State 22
+
+    2 LEXPA: LEXPA EXPA puntocoma .
+
+    $default  reduce using rule 2 (LEXPA)
+
+
+State 23
+
+    4 EXPA: EXPA . suma EXPA
+    4     | EXPA suma EXPA .
+    5     | EXPA . menos EXPA
+    6     | EXPA . multi EXPA
+    7     | EXPA . division EXPA
+    8     | EXPA . potencia EXPA
+
+    multi     shift, and go to state 17
+    division  shift, and go to state 18
+    potencia  shift, and go to state 19
+
+    $default  reduce using rule 4 (EXPA)
+
+
+State 24
+
+    4 EXPA: EXPA . suma EXPA
+    5     | EXPA . menos EXPA
+    5     | EXPA menos EXPA .
+    6     | EXPA . multi EXPA
+    7     | EXPA . division EXPA
+    8     | EXPA . potencia EXPA
+
+    multi     shift, and go to state 17
+    division  shift, and go to state 18
+    potencia  shift, and go to state 19
+
+    $default  reduce using rule 5 (EXPA)
+
+
+State 25
+
+    4 EXPA: EXPA . suma EXPA
+    5     | EXPA . menos EXPA
+    6     | EXPA . multi EXPA
+    6     | EXPA multi EXPA .
+    7     | EXPA . division EXPA
+    8     | EXPA . potencia EXPA
+
+    potencia  shift, and go to state 19
+
+    $default  reduce using rule 6 (EXPA)
+
+
+State 26
+
+    4 EXPA: EXPA . suma EXPA
+    5     | EXPA . menos EXPA
+    6     | EXPA . multi EXPA
+    7     | EXPA . division EXPA
+    7     | EXPA division EXPA .
+    8     | EXPA . potencia EXPA
+
+    potencia  shift, and go to state 19
+
+    $default  reduce using rule 7 (EXPA)
+
+
+State 27
+
+    4 EXPA: EXPA . suma EXPA
+    5     | EXPA . menos EXPA
+    6     | EXPA . multi EXPA
+    7     | EXPA . division EXPA
+    8     | EXPA . potencia EXPA
+    8     | EXPA potencia EXPA .
+
+    $default  reduce using rule 8 (EXPA)
