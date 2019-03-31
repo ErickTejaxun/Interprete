@@ -1,7 +1,7 @@
 # Organizaci�n de lenguajes y compiladores 1
 
 ## versión qt
-![Alt text](version.png?raw=true "version QT")
+![Alt text](version.PNG?raw=true "version QT")
 
 El siguiente ejemplo est� dirigido a los estudiantes del curso o bien a personas que quieran aprender sobre copiladores. 
 
