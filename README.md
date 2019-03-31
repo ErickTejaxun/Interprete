@@ -1,6 +1,9 @@
-# Organización de lenguajes y compiladores 1
+# Organizaciï¿½n de lenguajes y compiladores 1
 
-El siguiente ejemplo está dirigido a los estudiantes del curso o bien a personas que quieran aprender sobre copiladores. 
+## versiÃ³n qt
+![Alt text](version.png?raw=true "version QT")
+
+El siguiente ejemplo estï¿½ dirigido a los estudiantes del curso o bien a personas que quieran aprender sobre copiladores. 
 
 El siguiente programa es un ejemplo de interprete de un lenguaje que simplemente consta de expresiones aritmeticas separadas por punto y coma de la siguiente manera
 ```python
@@ -8,24 +11,24 @@ El siguiente programa es un ejemplo de interprete de un lenguaje que simplemente
 "hola" + " mundo " + 10;
 6.66+6*20;
 ```
-Hasta la fecha de publicación de esta (26/03/2019) se ha implmentado lo siguiente:
+Hasta la fecha de publicaciï¿½n de esta (26/03/2019) se ha implmentado lo siguiente:
 
-Análisis léxico,
+Anï¿½lisis lï¿½xico,
 
-Análisis Semantico
+Anï¿½lisis Semantico
 
-Generación de AST
+Generaciï¿½n de AST
 
-Graficación del AST
+Graficaciï¿½n del AST
 
 Recorrido del AST 
 
-Operación Suma implementada completamente. Las demás operaciones queda como tarea, pero esta guía es una vista general de como utilizar las herramientas para el analisis y un ejemplo del recorrido para la ejecución de un AST.
+Operaciï¿½n Suma implementada completamente. Las demï¿½s operaciones queda como tarea, pero esta guï¿½a es una vista general de como utilizar las herramientas para el analisis y un ejemplo del recorrido para la ejecuciï¿½n de un AST.
 
-Cabe resaltar que para la práctica y proyecto necesitarán realizar dos recorridos, uno para guardar las variables globales y metodos y funciones y en la segunda pasada ya se ejecutan las instrucciones que indique el método principal.
+Cabe resaltar que para la prï¿½ctica y proyecto necesitarï¿½n realizar dos recorridos, uno para guardar las variables globales y metodos y funciones y en la segunda pasada ya se ejecutan las instrucciones que indique el mï¿½todo principal.
 
 
-## Instalación
+## Instalaciï¿½n
 
 El programa tiene todo lo necesario para funcionar. 
 
@@ -43,7 +46,7 @@ Simplemente compilar y probar.
 ```
 
 ## Autor
-Erick Roberto Tejaxún Xicón
+Erick Roberto Tejaxï¿½n Xicï¿½n
 erickteja@gmail.com
 2019
 
