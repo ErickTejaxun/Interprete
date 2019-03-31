@@ -33,8 +33,8 @@ Cabe resaltar que para la pr�ctica y proyecto necesitar�n realizar dos recor
 El programa tiene todo lo necesario para funcionar. 
 
 ```bash
-Instalar Bison
-Instalar Jflex
+Instalar Bison 3.1 (agregarlo a variables de entorno en Windows)
+Instalar flex 2.6.4 (agregarlo a variables de entorno en Windows)
 Instalar QT
 ```
 
